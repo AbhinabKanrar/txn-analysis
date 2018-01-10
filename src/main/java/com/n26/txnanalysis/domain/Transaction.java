@@ -2,6 +2,9 @@ package com.n26.txnanalysis.domain;
 
 import javax.validation.constraints.NotNull;
 
+import lombok.Data;
+
+@Data
 public class Transaction {
 
 	@NotNull
@@ -25,5 +28,7 @@ public class Transaction {
 	public void setTimestamp(Long timestamp) {
 		this.timestamp = timestamp;
 	}
+	
+	
 
 }
