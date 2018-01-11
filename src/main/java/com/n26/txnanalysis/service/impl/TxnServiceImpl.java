@@ -17,6 +17,7 @@ import com.n26.txnanalysis.dao.TxnDao;
 import com.n26.txnanalysis.domain.Statistics;
 import com.n26.txnanalysis.domain.Transaction;
 import com.n26.txnanalysis.service.TxnService;
+import com.n26.txnanalysis.util.CommonConstant;
 
 /**
  * @author abhinab
@@ -49,7 +50,7 @@ public class TxnServiceImpl implements TxnService {
 	 * @see com.n26.txnanalysis.service.TxnService#calculateStatistics()
 	 */
 	@Override
-	@Scheduled(fixedDelay = 1000)
+	@Scheduled(fixedDelay = CommonConstant.SCANNER_SPAN)
 	public void calculateStatistics() {
 		statistics = new Statistics();
 		Map<Integer, Transaction> txnHolder = txnDao.fetchTransactions();

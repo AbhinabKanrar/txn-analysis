@@ -8,27 +8,28 @@ import lombok.Data;
 public class Transaction {
 
 	@NotNull
-	private Double amount;
+	private double amount;
 
 	@NotNull
-	private Long timestamp;
+	private long timestamp;
 
-	public Double getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public void setAmount(Double amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 
-	public Long getTimestamp() {
+	public long getTimestamp() {
 		return timestamp;
 	}
 
-	public void setTimestamp(Long timestamp) {
+	public void setTimestamp(long timestamp) {
 		this.timestamp = timestamp;
 	}
-	
+
+
 	
 
 }
