@@ -29,6 +29,12 @@ public class TxnController {
 	@Autowired
 	private TxnService txnService;
 
+	/**
+	 * Handler to put transaction
+	 * 
+	 * @param transaction
+	 * @return
+	 */
 	@PostMapping("transactions")
 	public @ResponseBody ResponseEntity<String> postTransactions(@RequestBody @Valid Transaction transaction) {
 		if (System.currentTimeMillis() - transaction.getTimestamp() > CommonConstant.ALLOWED_TIME_SPAN_IN_MIL) {
@@ -38,6 +44,10 @@ public class TxnController {
 		return new ResponseEntity<String>(HttpStatus.CREATED);
 	}
 
+	/**
+	 * Handler to fetch last 60 seconds statistics in guaranteed O(1) complexity
+	 * @return
+	 */
 	@GetMapping("statistics")
 	public Statistics getStatistics() {
 		return txnService.fetchCurrentStatistics();
